@@ -70,8 +70,8 @@ header{
 .header-mask{
 	position: absolute;
 	bottom: 0;
-
-	height: 42px;
+	background: 0 0;
+	height: 80px;
 	width: 100%;
 
 }
