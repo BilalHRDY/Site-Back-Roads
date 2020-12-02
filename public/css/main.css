@@ -124,6 +124,23 @@ header{
 	
 
 }
+
+@media only screen  and (min-width: 520px) and (max-width: 1080px)
+{
+	.wrapper-video-A1, .wrapper-video-B1{
+		width: 60%;
+	}
+    
+}
+
+@media only screen  and (max-width: 519px)
+{
+	.wrapper-video-A1, .wrapper-video-B1{
+		width: 80%;
+	}
+    
+}
+
 .wrapper-video-B1{
 	margin-bottom: 3em;
 }
