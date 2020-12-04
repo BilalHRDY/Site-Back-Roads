@@ -15,56 +15,30 @@ body{
 }
 
 
-.member-banner-reverse{
-	grid-template-columns: 1fr 1fr ;
-}
-
-.photo-reverse{
-	grid-column: 2;
-	grid-row: 1;
-	background: no-repeat url("C:/Users/Bilal/Desktop/Back-roads-site/public/img/fabBW.jpg");
-}
-
-
-.member-banner, .member-banner-reverse{
-	width: 100%;
-	height: 350px;
-	display: grid;
-	margin-bottom: 20px;
-
-}
 .member-banner{
-	grid-template-columns: 80% 1fr ;
-}
-.member-banner-reverse{
-	grid-template-columns:  1fr 80% ;
+	/*height: 400px;*/
+	display: grid;
+	grid-template-rows:  60px 400px;
 }
 
-.parallax-left{
+.parallax{
 	background: transparent;
-}
 
-.bio-right{
-	grid-column: 2;
-	
-}
 
-.bio-left{
-	grid-column: 1;
-	grid-row: 1;
-	
 }
 
 .bio{
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: space-around;
-}
-.bio p{
+	background-color: #000;
 	text-align: center;
+	margin: auto auto;
+	border: 1px solid white;
+	padding: 10px 20px;
 }
 
+
+.test{
+
+}
 
 
 /*.photo-fab{
