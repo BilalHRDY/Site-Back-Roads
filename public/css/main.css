@@ -10,8 +10,8 @@ body, html{
 }
 
 body{
-	font-weight: 200;
-	font-size: 17px;
+	/*font-weight: 200;*/
+	font-size: 1em;
 	font-family: "Barlow regular";
 	background-color: #000;
 	color: #FFF;
@@ -64,8 +64,7 @@ header{
   
 .header-link{
 	text-decoration: none;
-	color: white;
-	
+	color: #FFF;
 	margin-bottom: 0;
 	padding: 0;
 	position: relative;
@@ -90,17 +89,16 @@ header{
 
 /************Menu burger*************/
 
-
 .header-toggle{
 	width: 40px;
-	height: 60px;
+	height: 30px;
 	position: fixed;
 	right: 20px;
 	top: 20px;
 	display: flex;
 	cursor: pointer;
 	z-index: 999;
-
+	display: none;
 }
 
 .header-toggle-icons, .header-toggle-icons:before, .header-toggle-icons:after {
@@ -115,44 +113,37 @@ header{
 
 .header-toggle-icons:before{
 	top:13px;
-	/*background-color: green;*/
 }
 
 .header-toggle-icons:after {
 	top:23px;
-	/*background-color: yellow;*/
 }
 
-@media only screen  and (max-width: 672px)
-{
-	.header-toggle{
-		display: block;
-	}
-    
+.is-open.header-ul-link{
+	transform: translateX(0);
 }
 
-@media only screen  and (max-width: 672px)
-{
-	.header-ul-link{
-		display: flex;
-		align-items: center;
-		position: fixed;
-		width: 50%;
-		height: 100%;
-		top: 0;
-		right: 0;
-		background-color: #000;
-		opacity: 0.9;
+/*Transformation du menu burger en croix*/
 
-	}
-    
+.is-open.header-toggle-icons{
+	background-color: transparent;
+}
+
+.header-toggle-icons.is-open::before{
+	transform-origin: center;
+	transform: rotate(45deg);
+
+}
+.header-toggle-icons.is-open::after{
+	transform-origin: center;
+	top:10px;
+	transform: rotate(-45deg);
 }
 
 
 /**************Images svg**************/
 
 .mask{
-	
 	background: 0 0;
 	height: 30px;
 	width: 100%;
@@ -188,21 +179,6 @@ header{
 	margin-top: 3em;
 }
 
-@media only screen  and (min-width: 520px) and (max-width: 1080px)
-{
-	.wrapper-video-A1, .wrapper-video-B1{
-		width: 60%;
-	}
-    
-}
-
-@media only screen  and (max-width: 519px)
-{
-	.wrapper-video-A1, .wrapper-video-B1{
-		width: 80%;
-	}
-    
-}
 
 .wrapper-video-B1{
 	margin-bottom: 3em;
@@ -214,20 +190,46 @@ le ratio est donné par le padding-top qui va se calculer sur la largeur du wrap
 
 .wrapper-video-A2, .wrapper-video-B2{
   position: relative; 
- /* overflow: hidden; */
   padding-top: 56.25%; 
-/*  background-color: red;*/
   width: 100%;
-
 }
 
 .videoYT-1 , .videoYT-2{
 	position:  absolute;
-	transition: all 1.5s ease ;
+	transition: all 2s ease ;
 	width: 100%;
 	height: 100%;	
 	top: 0;
-    left: -75%;
+    left: -100vw;
+}
+@media only screen  and (min-width: 520px) and (max-width: 1080px)
+{
+	.wrapper-video-A1, .wrapper-video-B1{
+		width: 50%;
+	}
+}
+
+@media only screen  and (max-width: 519px)
+{
+	.wrapper-video-A1, .wrapper-video-B1{
+		width: 80%;
+	}
+	.header-toggle{
+		display: block;
+	}
+	.header-ul-link{
+		display: flex;
+		align-items: center;
+		position: fixed;
+		width: 50%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: #000;
+		opacity: 0.9;
+		transform: translateX(100%);
+		transition: all 0.5s;
+	}
 }
 
 
