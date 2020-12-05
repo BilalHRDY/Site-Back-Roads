@@ -1,30 +1,22 @@
 body, html{
 	height: 100%;
 	margin: 0;
+	padding: 0;
 }
 
 @font-face{
- 	font-family: "Barlow regular";
+ 	font-family: "Raleway";
  	src: url("fonts/barlow.regular.ttf") format("truetype");
 }
 
 body{
-	font-weight: 200;
-	font-family: "Barlow regular";
+	/*font-weight: 200;*/
+	font-size: 1em;
+	font-family: "Raleway";
 	background-color: #000;
 	color: #FFF;
 }
 
-header{
-	position: relative;
-	width: 100%;
-	height: 100%;
-	display: flex;
-	align-items: center;
-}
-/*.parallax{
-	background-clip: ur
-}*/
 .background-video {
   -webkit-filter: invert(1) contrast(180%) ;
   position: fixed;
@@ -35,12 +27,20 @@ header{
   z-index: -1;
   object-fit: cover;
   opacity: 0.5;
+}
   
+header{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
 }
 
 .header-logo{
 	margin: auto auto;
-	height: 80%;
+	max-height: 70%;
+	max-width: 70%;
 }
 
 .header-ul-link{
@@ -48,60 +48,188 @@ header{
 	display: flex;
 	flex-direction: column;
 	align-items: flex-end;
-    justify-content: space-around;
+    justify-content: center;
 	list-style-type: none;
-    width: 100%;
-    height: 50%;
-    padding: 0;
-    margin: 0;
+    height: 100%;
     right: 20px;
-  }
+    z-index: 1;
+    margin:0;
+    padding: 0;
+}
 
 .header-li-link{
-	padding: 0;
-    margin: 0;
-   /* text-align: right;*/
+	margin-top: 20px;
+	transform: translateY(-50%);
 }
   
 .header-link{
 	text-decoration: none;
-	color: #E0E0E0;
-	font-size: 17px;
+	color: #FFF;
 	margin-bottom: 0;
 	padding: 0;
+	position: relative;
 }
 
-.header-mask-top, .header-mask-bottom{
+
+.header-link::after{
+	content: '';
+	background-color: #FFF;
+	width: 100%;
+	height: 1px;
 	position: absolute;
+	left: 0;
+	bottom: -3px;
+	transform: scale(0);
+}
+
+.header-link:hover::after{
+	transform: scale(1);
+	transition: 0.3s;
+}
+
+/************Menu burger*************/
+
+.header-toggle{
+	width: 40px;
+	height: 30px;
+	position: fixed;
+	right: 20px;
+	top: 20px;
+	display: flex;
+	cursor: pointer;
+	z-index: 999;
+	display: none;
+}
+
+.header-toggle-icons, .header-toggle-icons:before, .header-toggle-icons:after {
+	content: "";
+	display: block;
+	width: 100%;
+	height: 3px;
+	border-radius: 5px;
+	background-color: #FFF;
+	position: relative;
+}
+
+.header-toggle-icons:before{
+	top:13px;
+}
+
+.header-toggle-icons:after {
+	top:23px;
+}
+
+.is-open.header-ul-link{
+	transform: translateX(0);
+}
+
+/*Transformation du menu burger en croix*/
+
+.is-open.header-toggle-icons{
+	background-color: transparent;
+}
+
+.header-toggle-icons.is-open::before{
+	transform-origin: center;
+	transform: rotate(45deg);
+
+}
+.header-toggle-icons.is-open::after{
+	transform-origin: center;
+	top:10px;
+	transform: rotate(-45deg);
+}
+
+
+/**************Images svg**************/
+
+.mask{
 	background: 0 0;
 	height: 30px;
 	width: 100%;
 	z-index: -1;
-}
-
-.header-mask-top{
-	top: 0;
-	transform: rotate(180deg);
+	opacity: 0.9;
 }
 
 .header-mask-bottom{
 	bottom: 0;
+	position: absolute;
 }
 
+.footer-mask-top{
+	top: 0;
+	transform: rotate(180deg);
+	opacity: 0.9;
+}
+
+/*************Main***************/
+
 .video-main{
-	text-align: center;
 	width: 100%;
-	height: 100%;
-	background-color: #000;
-	padding-top: 100px;
+	background: rgba(0, 0, 0, 0.9);
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 }
 
+/*Le 1er wrapper permet de définir la largeur souhaitée de la video*/
 
-	
-
-.last-video{
-	margin-top: 50px;
+.wrapper-video-A1, .wrapper-video-B1{
+	width: 30%;
+	margin-top: 3em;
 }
+
+
+.wrapper-video-B1{
+	margin-bottom: 3em;
+}
+
+/*Le 2ème wrapper permet de garder le ratio "youtube" de la video,
+le ratio est donné par le padding-top qui va se calculer sur la largeur du wrapper 1
+*/
+
+.wrapper-video-A2, .wrapper-video-B2{
+  position: relative; 
+  padding-top: 56.25%; 
+  width: 100%;
+}
+
+.videoYT-1 , .videoYT-2{
+	position:  absolute;
+	transition: all 2s ease ;
+	width: 100%;
+	height: 100%;	
+	top: 0;
+    left: -100vw;
+}
+@media only screen  and (min-width: 520px) and (max-width: 1080px)
+{
+	.wrapper-video-A1, .wrapper-video-B1{
+		width: 50%;
+	}
+}
+
+@media only screen  and (max-width: 519px)
+{
+	.wrapper-video-A1, .wrapper-video-B1{
+		width: 80%;
+	}
+	.header-toggle{
+		display: block;
+	}
+	.header-ul-link{
+		display: flex;
+		align-items: center;
+		position: fixed;
+		width: 50%;
+		height: 100%;
+		top: 0;
+		right: 0;
+		background-color: #000;
+		opacity: 0.9;
+		transform: translateX(100%);
+		transition: all 0.5s;
+	}
+}
+
+

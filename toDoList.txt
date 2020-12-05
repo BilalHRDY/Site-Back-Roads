@@ -1,1 +1,14 @@
 Ajouter un reset.css
+
+Responsive: 
+
+nav bar => menu sandwich ?
+scroll proportionnel
+enlever video pour phone
+
+Autres:
+
+hover sur link
+précharger les videos YT avant l'affichage ? 
+titres pour les videos 
+ajouter les ailes autour des videos
