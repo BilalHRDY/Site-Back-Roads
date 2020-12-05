@@ -5,14 +5,14 @@ body, html{
 }
 
 @font-face{
- 	font-family: "Barlow regular";
+ 	font-family: "Raleway";
  	src: url("fonts/barlow.regular.ttf") format("truetype");
 }
 
 body{
 	/*font-weight: 200;*/
 	font-size: 1em;
-	font-family: "Barlow regular";
+	font-family: "Raleway";
 	background-color: #000;
 	color: #FFF;
 }
